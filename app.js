@@ -13,4 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+const express = require('express');
+const bodyParser = require('body-parser');
+const graphqlHttp = require('express-graphql').graphqlHTTP;
+const mongoose = require('mongoose');
 
+const graphQlSchema = require('./graphql/schema/index');
+const graphQlResolvers = require('./graphql/resolvers/index');
+const isAuth = require('./middleware/is-auth');
+
+const app = express();
+
+app.use(bodyParser.json());
+
+app.use(isAuth);
+
+app.use(
+  '/graphql',
+  graphqlHttp({
+    schema: graphQlSchema,
+    rootValue: graphQlResolvers,
+    graphiql: true
+  })
+);
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    app.listen(3000);
+  })
+  .catch(err => {
+    console.log(err);
+  });

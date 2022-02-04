@@ -1,0 +1,30 @@
+{
+  "name": "books-exchange-service",
+  "version": "1.0.0",
+  "description": "Node.js books exchange Web service",
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnvan7/books-exchange-service.git"
+  },
+  "keywords": [],
+  "author": "Giovanni Vella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnvan7/books-exchange-service/issues"
+  },
+  "homepage": "https://github.com/johnvan7/books-exchange-service#readme"
+}
